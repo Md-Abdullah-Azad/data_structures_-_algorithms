@@ -2,8 +2,8 @@ package com.linkedlist;
 
 public class Node {
 
-	int data;
-	Node next;
+	public int data;
+	public Node next;
 	
 	public Node() {
 		this.next = null;
@@ -12,5 +12,13 @@ public class Node {
 		this.data = data;
 		this.next = null;
 	}
+	
+	@Override
+	public String toString() {
+         StringBuffer sb = new StringBuffer();
+         sb.append("Node Key ->"+this.data+" Next Node Value is ->"+next.data);
+		return sb.toString();
+	}
+	
 }
 

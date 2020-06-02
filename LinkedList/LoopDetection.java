@@ -19,15 +19,16 @@ public class LoopDetection {
 	}
 
 	boolean detectLoop() {
-		if(head == null || head.next == null) { return false; }
-		Node slow = head;
-		Node fast = head.next;
-		while(slow != fast) {
-			if(fast == null || fast.next == null) { return false; }
-			slow = slow.next;
-			fast = fast.next.next;
-		}
-		return true;
+		
+		Node slow = head, fast = head; 
+        while (slow != null && fast != null && fast.next != null) { 
+            slow = slow.next; 
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true; 
+            } 
+        } 
+        return false; 
 	}
 
 	public void print() {
@@ -50,7 +51,8 @@ public class LoopDetection {
 
 		ll.print();
 		/*Create loop for testing */
-        ll.head.next.next.next.next.next = ll.head; 
+        // ll.head.next.next.next.next.next = ll.head; 
+	    ll.head.next.next.next.next = ll.head.next; 
 		System.out.println(ll.detectLoop());
 	}
 }
